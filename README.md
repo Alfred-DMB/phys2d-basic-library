@@ -154,8 +154,9 @@ Los ejemplos con ventana se compilan por separado: `./visual_vehicle`,
   Pulsa `F` para disparar; las flechas ajustan la velocidad, Espacio pausa y
   `R` reinicia.
 
-Vista previa de la pila interactiva:
+Vistas previas de la pila interactiva:
 
+![Captura de la pila interactiva](preview/stack1.png)
 ![Captura del demo visual de la pila](preview/stack2.png)
 
 También hay binarios listos para Linux x86_64 en
