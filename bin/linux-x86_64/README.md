@@ -1,6 +1,6 @@
-# Visual demos — Linux x86_64
+# Demos visuales — Linux x86_64
 
-Linux builds of the raylib visual examples:
+Binarios para Linux de los ejemplos visuales hechos con raylib:
 
 ```bash
 chmod +x visual_vehicle visual_stack visual_bullet
@@ -9,20 +9,20 @@ chmod +x visual_vehicle visual_stack visual_bullet
 ./visual_bullet
 ```
 
-Run these commands from this directory after downloading the files.
+Ejecuta estos comandos desde esta carpeta después de descargar los archivos.
 
-The raylib and GLFW shared libraries are bundled in `.visual-libs/`. These
-binaries target Linux x86_64 and still require glibc plus the system X11 and
-OpenGL runtime libraries. They are not intended for macOS, Windows, or other
-CPU architectures.
+Las bibliotecas compartidas de raylib y GLFW están incluidas en `.visual-libs/`.
+Estos binarios son para Linux x86_64 y requieren glibc, además de las
+bibliotecas de sistema X11 y OpenGL. No están pensados para macOS, Windows ni
+otras arquitecturas.
 
-Controls:
+Controles:
 
-- Vehicle: arrow keys accelerate/brake; Space pauses; R resets.
-- Stack: left-click throws a circle, right-click throws a box; Space pauses;
-  R resets.
-- CCD comparison: F fires a pair of projectiles, arrow keys change their speed,
-  Space pauses, and R resets.
+- Vehículo: las flechas aceleran o frenan; Espacio pausa; R reinicia.
+- Pila: clic izquierdo lanza un círculo y clic derecho una caja; Espacio pausa;
+  R reinicia.
+- Comparación de CCD: F dispara dos proyectiles; las flechas ajustan su
+  velocidad; Espacio pausa y R reinicia.
 
-`RAYLIB-COPYRIGHT` and `GLFW-COPYRIGHT` contain the copyright and license
-notices for the bundled third-party libraries.
+`RAYLIB-COPYRIGHT` y `GLFW-COPYRIGHT` contienen los avisos de copyright y las
+licencias de las bibliotecas de terceros incluidas.
