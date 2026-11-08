@@ -1,0 +1,13 @@
+demo
+ex_stack
+ex_chain
+ex_raycast
+tests_bin
+tests_san
+bench
+*.o
+*.obj
+
+# Local planning notes; not part of the public project.
+PLAN.md
+WAVE5.md
