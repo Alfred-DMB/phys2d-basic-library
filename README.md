@@ -1,8 +1,31 @@
 # phys2d — API de físicas 2D C++23 (header-only)
 
-Ultra fácil: `#include "phys2d/phys2d.hpp"` y listo. Sin dependencias.
+Soy muy flojo, así que hice esto para no volver a pelearme con las matemáticas. Tampoco hay que ser muy listo para usarlo, como yo. La librería está hecha mayormente en inglés, pero el tutorial está en español. En el futuro será en inglés. Disfrútalo.
+
+Una API de físicas 2D en C++23, header-only y sin dependencias externas: incluye
+`phys2d/phys2d.hpp` y empieza a simular.
 
 Documentación extensa: [docs/](docs/README.md) — `core`, `collision`, `joints`, `queries`.
+
+## Índice
+
+- [Empezar](#empezar)
+- [Qué incluye](#qué-incluye)
+- [Cambios rompientes de la API v3](#cambios-rompientes-api-v3)
+- [Compilar y probar](#compilar-y-probar)
+- [Rendimiento](#rendimiento)
+- [Desarrollo](#desarrollo)
+- [Licencia](#licencia)
+
+## Empezar
+
+Compila los ejemplos y las pruebas con `make`:
+
+```bash
+make
+```
+
+Incluye la librería y crea un mundo:
 
 ```cpp
 #include "phys2d/phys2d.hpp"
@@ -23,7 +46,7 @@ phys2d::Vec2 pos = world.body(ball).pos;
 for (auto& body : world) { /* itera todos los cuerpos */ }
 ```
 
-Qué incluye:
+## Qué incluye
 
 - Formas: círculo, caja (`AABB` + `Body::angle`), polígono convexo, cápsula y
   segmento (`std::variant`), con inicializadores designados.
@@ -76,7 +99,7 @@ Qué incluye:
   NaN, vértices de polígono no finitos) o con valores no finitos
   (NaN/inf en pos, vel, ángulo…) lanza `std::invalid_argument`.
 
-## Cambios rompientes (API v3)
+## Cambios rompientes de la API v3
 
 - `World::bodies()` y `bodySpan()` eliminados → `bodiesSpan()` (span de
   punteros const). Los cuerpos se mutan vía `world.body(id)`/iteración.
@@ -106,31 +129,42 @@ Qué incluye:
 ## Compilar y probar
 
 ```bash
-make        # demo + ejemplos + tests_bin
-make test   # tests con asserts + ejemplos
-make bench  # benchmark: ./bench [n] [steps]  (defecto 10000 cuerpos x 120 steps)
-make sanitizers  # tests con ASan+UBSan
-make visual  # demos con ventana (requiere raylib + pkg-config)
+make             # demo + ejemplos + tests_bin
+make test        # pruebas con asserts + ejemplos
+make bench       # ./bench [n] [steps] (por defecto, 10000 cuerpos x 120 steps)
+make sanitizers  # pruebas con ASan + UBSan
+make visual      # demos con ventana (requiere raylib + pkg-config)
 make clean
 ```
 
-Ejemplos: `./demo`, `./ex_stack`, `./ex_chain`, `./ex_raycast` y
-`./ex_vehicle` (coche con ruedas motrices usando joints `Revolute`).
+Ejemplos de consola: `./demo`, `./ex_stack`, `./ex_chain`, `./ex_raycast` y
+`./ex_vehicle` (coche con ruedas motrices conectadas mediante joints
+`Revolute`).
+
+### Demos visuales
+
 Los ejemplos con ventana se compilan por separado: `./visual_vehicle`,
 `./visual_stack` y `./visual_bullet`. Necesitan raylib y no forman parte de
-`make test`. En Debian/Ubuntu se instala con
+`make test`. En Debian/Ubuntu, instala raylib y pkg-config con
 `sudo apt install libraylib-dev pkg-config`.
-`visual_vehicle` dibuja los amortiguadores; `visual_bullet` compara en dos
-carriles `bullet` activado/desactivado. En este último, `F` dispara una pareja,
-las flechas ajustan la velocidad, Espacio pausa y `R` reinicia.
-También se incluyen binarios listos para Linux x86_64 en
-[`bin/linux-x86_64/`](bin/linux-x86_64/); incluyen raylib/GLFW y sus avisos de
-licencia, y requieren las bibliotecas de sistema X11/OpenGL.
+
+- `visual_vehicle`: muestra el vehículo y sus amortiguadores.
+- `visual_stack`: permite lanzar círculos y cajas a la pila con el ratón.
+- `visual_bullet`: compara `bullet` activado y desactivado en dos carriles.
+  Pulsa `F` para disparar; las flechas ajustan la velocidad, Espacio pausa y
+  `R` reinicia.
+
+También hay binarios listos para Linux x86_64 en
+[`bin/linux-x86_64/`](bin/linux-x86_64/). Incluyen raylib/GLFW y sus avisos de
+licencia, pero necesitan las bibliotecas de sistema X11 y OpenGL. Las
+instrucciones de descarga y uso están en el README de esa carpeta.
 
 Rendimiento medido en esta máquina (círculos en pila, broadphase con radix
 sort, radios cacheados, buffers reutilizables y sleep operativo): ~0.35 ms/step
 con 500 cuerpos y ~1.9 ms/step con 2.000 (bench `./bench <n> <steps>`).
 El coste crece con el nº de contactos, no solo con el nº de cuerpos.
+
+## Desarrollo
 
 Flags: `g++ -std=c++23 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror`.
 Formato: `.clang-format` (K&R, 4 espacios, 100 columnas) — `clang-format --dry-run --Werror` limpio.
