@@ -2,6 +2,8 @@
 
 Ultra fácil: `#include "phys2d/phys2d.hpp"` y listo. Sin dependencias.
 
+Soy muy flojo, así que hice esto para no volver a pelearme con las matemáticas. Tampoco hay que ser muy listo para usarlo, como yo. La librería está hecha mayormente en inglés, pero el tutorial está en español. En el futuro será en inglés. Disfrútalo.
+
 Documentación extensa: [docs/](docs/README.md) — `core`, `collision`, `joints`, `queries`.
 
 ```cpp
