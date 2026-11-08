@@ -3,10 +3,13 @@ ex_stack
 ex_chain
 ex_raycast
 ex_vehicle
+visual_vehicle
+visual_stack
+visual_bullet
 tests_bin
 tests_san
 bench
 *.o
 *.obj
 
-
+.visual-libs/

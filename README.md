@@ -110,11 +110,22 @@ make        # demo + ejemplos + tests_bin
 make test   # tests con asserts + ejemplos
 make bench  # benchmark: ./bench [n] [steps]  (defecto 10000 cuerpos x 120 steps)
 make sanitizers  # tests con ASan+UBSan
+make visual  # demos con ventana (requiere raylib + pkg-config)
 make clean
 ```
 
 Ejemplos: `./demo`, `./ex_stack`, `./ex_chain`, `./ex_raycast` y
 `./ex_vehicle` (coche con ruedas motrices usando joints `Revolute`).
+Los ejemplos con ventana se compilan por separado: `./visual_vehicle`,
+`./visual_stack` y `./visual_bullet`. Necesitan raylib y no forman parte de
+`make test`. En Debian/Ubuntu se instala con
+`sudo apt install libraylib-dev pkg-config`.
+`visual_vehicle` dibuja los amortiguadores; `visual_bullet` compara en dos
+carriles `bullet` activado/desactivado. En este último, `F` dispara una pareja,
+las flechas ajustan la velocidad, Espacio pausa y `R` reinicia.
+También se incluyen binarios listos para Linux x86_64 en
+[`bin/linux-x86_64/`](bin/linux-x86_64/); incluyen raylib/GLFW y sus avisos de
+licencia, y requieren las bibliotecas de sistema X11/OpenGL.
 
 Rendimiento medido en esta máquina (círculos en pila, broadphase con radix
 sort, radios cacheados, buffers reutilizables y sleep operativo): ~0.35 ms/step
