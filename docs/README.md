@@ -27,3 +27,6 @@ auto hit = world.raycast({400.f, 0.f}, {0.f, 1.f}, 600.f);
 ```
 
 Verificar cambios: `make test`, `make sanitizers`, `make bench`.
+
+Ejemplos ejecutables: `demo`, `ex_stack`, `ex_chain`, `ex_raycast` y
+`ex_vehicle` (dos ruedas motrices conectadas al chasis con joints `Revolute`).
