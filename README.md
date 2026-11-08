@@ -158,13 +158,15 @@ Vistas previas de la pila interactiva:
 
 ![Captura de la pila interactiva](preview/stack1.png)
 ![Captura del demo visual de la pila](preview/stack2.png)
+![Captura del demo visual de la pila](preview/stack_preview.mkv)
+
 
 También hay binarios listos para Linux x86_64 en
 [`bin/linux-x86_64/`](bin/linux-x86_64/). Incluyen raylib/GLFW y sus avisos de
 licencia, pero necesitan las bibliotecas de sistema X11 y OpenGL. Las
 instrucciones de descarga y uso están en el README de esa carpeta.
 
-Rendimiento medido en esta máquina (círculos en pila, broadphase con radix
+Rendimiento medido en mi máquina (círculos en pila, broadphase con radix
 sort, radios cacheados, buffers reutilizables y sleep operativo): ~0.35 ms/step
 con 500 cuerpos y ~1.9 ms/step con 2.000 (bench `./bench <n> <steps>`).
 El coste crece con el nº de contactos, no solo con el nº de cuerpos.
