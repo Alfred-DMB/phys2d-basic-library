@@ -2,8 +2,6 @@
 
 Ultra fácil: `#include "phys2d/phys2d.hpp"` y listo. Sin dependencias.
 
-Soy muy flojo, así que hice esto para no volver a pelearme con las matemáticas. Tampoco hay que ser muy listo para usarlo, como yo. La librería está hecha mayormente en inglés, pero el tutorial está en español. En el futuro será en inglés. Disfrútalo.
-
 Documentación extensa: [docs/](docs/README.md) — `core`, `collision`, `joints`, `queries`.
 
 ```cpp
@@ -114,6 +112,9 @@ make bench  # benchmark: ./bench [n] [steps]  (defecto 10000 cuerpos x 120 steps
 make sanitizers  # tests con ASan+UBSan
 make clean
 ```
+
+Ejemplos: `./demo`, `./ex_stack`, `./ex_chain`, `./ex_raycast` y
+`./ex_vehicle` (coche con ruedas motrices usando joints `Revolute`).
 
 Rendimiento medido en esta máquina (círculos en pila, broadphase con radix
 sort, radios cacheados, buffers reutilizables y sleep operativo): ~0.35 ms/step

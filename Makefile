@@ -3,7 +3,7 @@ CXXFLAGS = -std=c++23 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror -O2
 
 HEADERS := $(wildcard include/phys2d/*.hpp)
 
-all: demo ex_stack ex_chain ex_raycast tests_bin
+all: demo ex_stack ex_chain ex_raycast ex_vehicle tests_bin
 
 demo: examples/main.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) examples/main.cpp -o demo
@@ -17,6 +17,9 @@ ex_chain: examples/ex_chain.cpp $(HEADERS)
 ex_raycast: examples/ex_raycast.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) examples/ex_raycast.cpp -o ex_raycast
 
+ex_vehicle: examples/ex_vehicle.cpp $(HEADERS)
+	$(CXX) $(CXXFLAGS) examples/ex_vehicle.cpp -o ex_vehicle
+
 tests_bin: tests/tests.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) tests/tests.cpp -o tests_bin
 
@@ -29,12 +32,13 @@ test: all
 	./ex_stack
 	./ex_chain
 	./ex_raycast
+	./ex_vehicle
 
 sanitizers: tests/tests.cpp $(HEADERS)
 	$(CXX) -std=c++23 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror -fsanitize=address,undefined -fno-sanitize-recover=all -O1 -g -Iinclude tests/tests.cpp -o tests_san
 	./tests_san
 
 clean:
-	rm -f demo ex_stack ex_chain ex_raycast tests_bin bench tests_san
+	rm -f demo ex_stack ex_chain ex_raycast ex_vehicle tests_bin bench tests_san
 
 .PHONY: all test bench clean sanitizers
