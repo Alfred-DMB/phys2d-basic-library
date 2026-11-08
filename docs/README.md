@@ -30,3 +30,7 @@ Verificar cambios: `make test`, `make sanitizers`, `make bench`.
 
 Ejemplos ejecutables: `demo`, `ex_stack`, `ex_chain`, `ex_raycast` y
 `ex_vehicle` (dos ruedas motrices conectadas al chasis con joints `Revolute`).
+
+Los demos gráficos opcionales usan raylib: `make visual` compila
+`visual_vehicle`, `visual_stack` y `visual_bullet`. Controles e instalación en
+[README.md](../README.md); no se requieren para `make test`.
